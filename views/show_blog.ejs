@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Site</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex">
+            <% for(let rec of data) {%>
+                <div class="main">
+                    <div class="blog-img">
+                        <img src="<%= rec.thumbnail%>">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-title">
+                            <h1><%= rec.title%></h1>
+                        </div>
+                        <div class="d-flex jus-con-space-between">
+                            <span style="font-weight: 800;">
+                                <%let time=rec.date.toString()%>
+                                    <%= time.slice(0, 15)%>
+                            </span>
+                            <span style="font-weight: 800;">
+                                <%= rec.person_name%>
+                            </span>
+                        </div>
+                        <div class="desc">
+                            <p>
+                                <%= rec.description%>
+                            </p>
+                        </div>
+                        <div class="read-more" style="text-align: right;">
+                            <a href="/show-blog/<%= rec.id%>">Read More</a>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <span>
+                            <%= rec.category%>
+                        </span>
+                    </div>
+
+                </div>
+                <% }%>
+        </div>
+    </div>
+</body>
+
+</html>

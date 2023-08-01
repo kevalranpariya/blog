@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog Detail</title>
+</head>
+<body>
+    <form action="/blog-insert" method="post" enctype="multipart/form-data">
+
+        <table>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>
+                    <select name="category">
+                        <option value="">-- Select Categories</option>
+                        <option value="Sports">Sports</option>
+                        <option value="News">NEWS</option>
+                        <option value="Politics">Politics</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Person Name:</td>
+                <td><input type="text" name="person"></td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td><input type="date" name="date"></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><textarea name="desc" cols="20" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input type="file" name="thumbnail"></td>
+            </tr>  
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Add Blog"></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>

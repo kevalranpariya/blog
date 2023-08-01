@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single page layout</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex">
+            <div class="w-80 px-10" style="position: relative;">
+                <div class="blogimg">
+                    <img src="../<%= data.thumbnail%>" alt="" width="100%" height="500px" style="object-fit: cover;">
+                </div>
+                <div class="d-flex jus-con-space-between">
+                    <span style="font-weight: 800;">
+                        <%let time=data.date.toString()%>
+                                    <%= time.slice(0, 15)%>
+                    </span>
+                    <span style="font-weight: 800;">
+                        <%= data.person_name%>
+                    </span>
+                </div>
+                <div style="margin: 10px 0;">
+                    <h1><%= data.title%></h1>
+                </div>
+                <div style="margin: 10px 0;">
+                    <p><%= data.description%></p>
+                </div>
+                <div class="category">
+                    <span>
+                        <%= data.category%>
+                    </span>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="comment">
+                    <form action="/comment">
+                        <table>
+                            <tr>
+                                <td>Enter Name</td>
+                               <td> <input type="text" name="name"></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Phone no</td>
+                               <td> <input type="text" name="phone"></td>
+                            </tr>
+                            <tr>
+                                <td>Enter Email</td>
+                                <td><input type="email" name="email"></td>
+                            </tr>
+                            <tr>
+                                <td>description</td>
+                                <td><textarea name="desc" cols="20" rows="5"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="submit" value="Add Comment"></td>
+                            </tr>
+                        </table>
+
+                    </form>
+                </div>
+                
+            </div>
+            <div class="w-20 px-10">
+                <% let allRec_sort = allRec.sort();let showData = allRec_sort.slice(allRec_sort.length -3); let showRec = showData.reverse();%>
+                <% for(let rec of showRec){ %>
+
+                    <div class="main" style="width: 100%;">
+                        <div class="blog-img">
+                            <img src="../<%= rec.thumbnail%>">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <h1><%= rec.title%></h1>
+                            </div>
+                            <div class="d-flex jus-con-space-between">
+                                <span style="font-weight: 800;">
+                                    <%let time=rec.date.toString()%>
+                                        <%= time.slice(0, 15)%>
+                                </span>
+                                <span style="font-weight: 800;">
+                                    <%= rec.person_name%>
+                                </span>
+                            </div>
+                            <div class="desc">
+                                <p>
+                                    <%= rec.description%>
+                                </p>
+                            </div>
+                            <div class="read-more" style="text-align: right;">
+                                <a href="/show-blog/<%= rec.id%>">Read More</a>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <span>
+                                <%= rec.category%>
+                            </span>
+                        </div>
+
+                        
+                    </div>
+
+
+                    <%}%>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
